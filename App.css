@@ -212,7 +212,7 @@
 
 @font-face {
   font-family: "ZiTiQuanWeiJunHei";
-  src: url("../font/ZiTiQuanWeiJunHei-W3-2.ttf") format("truetype");
+  src: url("/font/ZiTiQuanWeiJunHei-W3-2.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -220,7 +220,7 @@
 
 @font-face {
   font-family: "AlibabaPuHuiTi-Black";
-  src: url("../font/AlibabaPuHuiTi-Black.ttf") format("truetype");
+  src: url("/font/AlibabaPuHuiTi-Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -465,7 +465,6 @@
   background: #000;
   color: #fff;
   z-index: 9999;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -488,6 +487,6 @@
   }
   
   .app > *:not(.mobile-notice) {
-    display: none;
+    display: none !important;
   }
 } 
