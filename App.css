@@ -183,7 +183,7 @@
   width: 100%;
   font-weight: 900;
   line-height: 1.2;
-  font-family: "AlibabaPuHuiTi-Black", sans-serif;
+  font-family: var(--font-family-chinese), var(--font-family-base);
 }
 
 .encrypted-text {
@@ -210,6 +210,12 @@
   }
 }
 
+/* 使用系统中文字体 */
+:root {
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-chinese: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
 @font-face {
   font-family: "ZiTiQuanWeiJunHei";
   src: url("/font/ZiTiQuanWeiJunHei-W3-2.ttf") format("truetype");
@@ -218,46 +224,10 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "AlibabaPuHuiTi-Black";
-  src: url("/font/AlibabaPuHuiTi-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-.content-column {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 280px;
-}
-
-.bottom-contact {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  z-index: 100;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  white-space: nowrap;
-}
-
 .contact-text {
   color: #ffffff;
   font-size: 1rem;
-  font-family: "ZiTiQuanWeiJunHei", sans-serif;
+  font-family: var(--font-family-chinese), var(--font-family-base);
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   letter-spacing: 0.05em;
@@ -355,7 +325,7 @@
   font-size: 1.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
-  font-family: "ZiTiQuanWeiJunHei", sans-serif;
+  font-family: var(--font-family-chinese), var(--font-family-base);
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
@@ -418,14 +388,14 @@
   font-size: 1rem;
   font-weight: 900;
   margin-bottom: 0.2rem;
-  font-family: "ZiTiQuanWeiJunHei", sans-serif;
+  font-family: var(--font-family-chinese), var(--font-family-base);
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
 }
 
 .honor-content p {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.85rem;
-  font-family: "ZiTiQuanWeiJunHei", sans-serif;
+  font-family: var(--font-family-chinese), var(--font-family-base);
   line-height: 1.3;
 }
 

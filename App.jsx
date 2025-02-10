@@ -253,6 +253,7 @@ function App() {
                   <div className="honor-content">
                     <h3>哔哩哔哩平台认证</h3>
                     <p>10万粉丝实体奖牌和证书</p>
+                    <img src="/bilibili-award.jpg" alt="哔哩哔哩奖牌" style={{ width: '100%', marginTop: '10px', borderRadius: '8px' }} />
                   </div>
                 </div>
                 <div className="honor-item">
@@ -265,6 +266,7 @@ function App() {
                   <div className="honor-content">
                     <h3>生成式AI应用师</h3>
                     <p>工信和信息化部工业文化发展中心颁发高级证书</p>
+                    <img src="/ai-cert.jpg" alt="AI证书" style={{ width: '100%', marginTop: '10px', borderRadius: '8px' }} />
                   </div>
                 </div>
               </div>
