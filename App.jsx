@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Aurora from './Aurora';
 import TrueFocus from './TrueFocus';
 import TiltedCard from './TiltedCard';
@@ -16,6 +16,18 @@ function App() {
   const [showWorkExperience, setShowWorkExperience] = useState(true);
   const [showMySkills, setShowMySkills] = useState(false);
   const [showWorkPhotos, setShowWorkPhotos] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const toggleWorkExperience = () => {
     setShowWorkExperience(!showWorkExperience);
@@ -37,6 +49,12 @@ function App() {
 
   return (
     <div className="app">
+      <div className="mobile-notice">
+        <img src="/avatar.jpg" alt="头像" />
+        <h2>请使用电脑打开哦 😊</h2>
+        <p>为了给您提供最佳的浏览体验，请使用电脑访问本网站</p>
+      </div>
+      
       <div className="aurora-wrapper">
         <Aurora
           colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
