@@ -5,14 +5,14 @@ import './WorkPhotos.css';
 const photos = [
   {
     id: 1,
-    image: "/work-photos/photo1.jpg",
+    image: "work-photos/photo1.jpg",
     title: "地图适用于您的iPhone 15 Pro Max",
     category: "产品",
     description: "优化地图应用程序界面，提供更好的用户体验。"
   },
   {
     id: 2,
-    image: "/work-photos/photo2.jpg",
+    image: "work-photos/photo2.jpg",
     title: "摄影变得更好了",
     category: "iOS",
     description: "通过先进的图像处理技术，提升照片质量。"

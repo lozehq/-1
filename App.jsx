@@ -50,9 +50,9 @@ function App() {
   return (
     <div className="app">
       <div className="mobile-notice">
-        <img src="/avatar.jpg" alt="头像" />
-        <h2>请使用电脑打开哦 😊</h2>
-        <p>为了给您提供最佳的浏览体验，请使用电脑访问本网站</p>
+        <img src="avatar.jpg" alt="头像" />
+        <h2>简历网站目前仅支持电脑查看</h2>
+        <p>为了确保最佳浏览体验，建议您使用电脑访问本网站</p>
       </div>
       
       <div className="aurora-wrapper">
@@ -179,7 +179,7 @@ function App() {
           <div className="content-column">
             <div className="left-section">
               <TiltedCard
-                imageSrc="/avatar.jpg"
+                imageSrc="avatar.jpg"
                 altText="个人头像"
                 captionText="新媒体总监"
                 containerHeight="180px"
@@ -297,7 +297,7 @@ function App() {
                 <span className="contact-value">AP1940231594</span>
               </TypingAnimation>
               <img 
-                src="/WeChat QR Code.jpg" 
+                src="WeChat QR Code.jpg" 
                 alt="WeChat QR Code" 
                 className="wechat-qr"
               />
