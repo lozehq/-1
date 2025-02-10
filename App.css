@@ -1,7 +1,7 @@
 .app {
-  width: 100vw;
+  width: 1920px;
   height: 100vh;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -190,24 +190,6 @@
   color: rgba(255, 255, 255, 0.4);
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   letter-spacing: 0.05em;
-}
-
-@media (max-width: 768px) {
-  .content-wrapper {
-    padding: 2rem;
-  }
-
-  .true-focus-wrapper {
-    margin-left: 1rem;
-  }
-
-  .main-content {
-    padding-left: 1rem;
-  }
-
-  .left-section {
-    width: 100%;
-  }
 }
 
 @font-face {
@@ -447,110 +429,46 @@
   cursor: grabbing;
 }
 
-@media screen and (max-width: 768px) {
-  .app {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .aurora-wrapper {
-    position: fixed;
-    will-change: transform;
-  }
-
-  .content-wrapper {
-    padding: 1rem;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: visible;
-  }
-
-  .nav-text {
-    position: relative;
-    top: 1rem;
-    left: 0;
-    transform: none;
-    margin-bottom: 1rem;
-    will-change: transform;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-
-  .nav-text.second,
-  .nav-text.third {
-    left: 0;
-  }
-
-  .nav-text .word-group {
-    align-items: flex-start;
-  }
-
-  .true-focus-wrapper {
+@media screen and (max-width: 1920px) {
+  html, body {
+    width: 1920px;
+    min-width: 1920px;
+    overflow-x: auto;
     margin: 0;
-    margin-top: 1rem;
+    padding: 0;
   }
 
-  .work-experience-section,
-  .skills-container,
-  .work-photos-container {
+  body {
     position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    margin-top: 2rem;
-    padding: 1rem;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.85);
   }
 
-  .main-content {
-    flex-direction: column;
-    padding: 1rem;
-    margin-top: 2rem;
+  #root {
+    width: 1920px;
+    min-width: 1920px;
   }
 
-  .left-section {
-    width: 100%;
-    max-width: none;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.85);
+  .app {
+    transform-origin: top left;
   }
 
-  .content-column {
-    width: 100%;
-  }
-
-  .bottom-contact {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-
-  .contact-info {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    backdrop-filter: none;
-    background: rgba(0, 0, 0, 0.85);
-  }
-
-  .contact-text {
-    width: 100%;
-  }
-
-  .wechat-qr {
-    left: 0;
-    transform: none;
+  .work-experience-section {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 52%;
+    left: 57%;
     transform: translate(-50%, -50%);
-    z-index: 1000;
+  }
+
+  .skills-container {
+    position: fixed;
+    top: 52%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+  }
+
+  .work-photos-container {
+    position: fixed;
+    top: 55%;
+    left: 57%;
+    transform: translate(-50%, -50%);
   }
 } 
