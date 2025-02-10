@@ -228,4 +228,60 @@
 
 .next-arrow:hover svg {
   stroke: rgba(255, 255, 255, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  .work-experience {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .work-content {
+    max-width: none;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .awards-showcase {
+    width: 100%;
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .award-item {
+    height: 150px;
+    transform: none;
+    transition: none;
+  }
+
+  .award-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .work-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .company-info {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .achievements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .next-arrow {
+    display: none;
+  }
+
+  .skill-tag {
+    transition: none;
+  }
 } 
