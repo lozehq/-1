@@ -2,8 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Aurora Animation</title>
+    <style>
+      @media screen and (max-width: 1024px) {
+        body {
+          min-width: 1024px;
+          overflow-x: auto;
+        }
+        #root {
+          min-width: 1024px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
