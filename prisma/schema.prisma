@@ -1,0 +1,153 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  hashedPassword String?
+  role          String    @default("USER")
+  credits       Int       @default(1000)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  partnerAccount String?   @unique
+
+  orders        Order[]
+  transactions  CreditTransaction[]
+  creditUsages  CreditUsage[]
+
+  accounts      Account[]
+  sessions      Session[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Product {
+  id             String      @id @default(cuid())
+  name           String
+  description    String
+  price          Int
+  image          String
+  platform       String
+  stock          Int
+  rating         Float
+  reviews        Int
+  duration       String
+  features       String      // JSON string of features array
+  activationType String
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  OrderItem      OrderItem[]
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  userId    String
+  status    String
+  items     OrderItem[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  user      User        @relation(fields: [userId], references: [id])
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Int
+  order     Order    @relation(fields: [orderId], references: [id])
+  product   Product  @relation(fields: [productId], references: [id])
+}
+
+model CreditTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  amount      Int
+  type        String   // CONSUME, REFUND, REWARD
+  status      String   // PENDING, COMPLETED, FAILED
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model CardKey {
+  id          String   @id @default(cuid())
+  code        String   @unique    // 卡密码
+  amount      Int                 // 充值金额
+  isUsed      Boolean  @default(false)
+  usedAt      DateTime?
+  usedBy      String?            // 使用者的用户ID
+  createdAt   DateTime @default(now())
+  createdBy   String?            // 创建者（管理员）的用户ID
+  expiresAt   DateTime?          // 过期时间
+  batch       String?            // 批次号
+  description String?            // 描述
+
+  @@index([code])
+  @@index([isUsed])
+  @@index([batch])
+}
+
+model CreditUsage {
+  id          String   @id @default(cuid())
+  amount      Int
+  platform    String   // DOUYIN, XIAOHONGSHU, BILIBILI, etc.
+  taskType    String   // VIEW, LIKE, COMMENT, etc.
+  status      String   // COMPLETED, PENDING, FAILED
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
